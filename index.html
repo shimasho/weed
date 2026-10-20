@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雑草判定AI & 図鑑</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+<div class="app-container">
+  <!-- ヘッダー -->
+  <header class="app-header">
+    <h1>🌿 雑草判定AI & 図鑑</h1>
+    <p>写真を撮影・選択してAI判定 & スプレッドシート照合</p>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="main-content-grid">
+    
+    <!-- 左側：写真選択・アップロード -->
+    <section class="card">
+      <h2 class="panel-title">1. 写真をえらぶ</h2>
+
+      <div class="upload-section">
+        <label for="fileInput" class="file-btn">
+          📷 スマホで撮影 / 写真を選択する
+        </label>
+        <input type="file" id="fileInput" accept="image/*">
+      </div>
+
+      <!-- プレビュー表示エリア -->
+      <div class="preview-wrap" id="previewWrap">
+        <p id="previewText">ここに選択した写真が表示されます</p>
+        <img id="imagePreview" src="" alt="プレビュー画像">
+      </div>
+
+      <button type="button" class="btn-primary" id="analyzeBtn" disabled>
+        🔍 2. AIで判定する
+      </button>
+
+      <!-- ローディング -->
+      <div id="loading" style="display: none; text-align: center; margin-top: 15px;">
+        <div class="spinner"></div>
+        <p id="loadingStatus">解析中...</p>
+      </div>
+    </section>
+
+    <!-- 右側：結果表示 -->
+    <section class="card">
+      <h2 class="panel-title">2. 判定・図鑑データ結果</h2>
+
+      <div class="result-box">
+        <div class="result-header">
+          <span class="badge" id="resSource">待機中</span>
+          <h3 class="weed-name" id="resName">-</h3>
+        </div>
+
+        <div class="info-group">
+          <h4>科名 / 分類</h4>
+          <p id="resFamily">-</p>
+        </div>
+
+        <div class="info-group">
+          <h4>詳細データ・対策</h4>
+          <div id="resFeatures">写真をえらび、「AIで判定する」を押してください。</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
